@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn-key{
+            width: 50px;
+            height: 50px;
+            margin : 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="text-align: center;"><h3>Calculator</h3>
+    </div>
+    <div>
+        <div id="displayView" style="height: 120px;background-color: gray;color: white; display: flex; justify-content: end;align-items: end;
+        font-size: 60px; padding: 20px;"> 
+        </div>
+    </div>
+    <div id="buttonGrid">
+        <div>
+            <button id="button1" class="btn-key">1</button>
+            <button id="button2"  class="btn-key">2</button>
+            <button id="button3"  class="btn-key">3</button>
+            <button id="button4"  class="btn-key">4</button>
+            <button id="button5"  class="btn-key">5</button>
+            <button id="button6"  class="btn-key">6</button>
+            <button id="button7"  class="btn-key">7</button>
+            <button id="button8"  class="btn-key">8</button>
+            <button id="button9"  class="btn-key">9</button>
+            <button id="button10"  class="btn-key">0</button>
+            <button id="button11"  class="btn-key">-</button>
+            <button id="button12"  class="btn-key">+</button>
+            <button id="button13"  class="btn-key">/</button>
+            <button id="button14"  class="btn-key">AC</button>
+            <button id="button15"  class="btn-key">=</button>
+            <button id="button16"  class="btn-key">CE</button>
+        </div>
+    </div>
+<script>
+    var displayView=document.getElementById("displayView")
+    var button1=document.getElementById("button1")
+    var button2=document.getElementById("button2")
+    var button3=document.getElementById("button3")
+    var button4=document.getElementById("button4")
+    var button5=document.getElementById("button5")
+    var button6=document.getElementById("button6")
+    var button7=document.getElementById("button7")
+    var button8=document.getElementById("button8")
+    var button9=document.getElementById("button9")
+    var button10=document.getElementById("button10")
+    var button11=document.getElementById("button11")
+    var button12=document.getElementById("button12")
+    var button13=document.getElementById("button13")
+    var button14=document.getElementById("button14")
+    var button15=document.getElementById("button15")
+    var button16=document.getElementById("button16")
+
+    button1.addEventListener("click",updateDisplay);
+    function updateDisplay(){
+        displayView.innerText += button1.innerText;
+        console.log(displayView.innerHTML)
+    }
+
+    // button1.addEventListener('click',()=>{
+    //     displayView.innerText += button1.innerText;
+    // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+    
+</body>
+</html>

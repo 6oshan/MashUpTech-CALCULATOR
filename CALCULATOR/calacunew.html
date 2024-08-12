@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background:url(./body5.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+             
+        }
+        .outerDiv{
+            width: 300px;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.114);
+            border-radius: 5px;
+            border: 2px solid white;   
+        }
+        .row1{
+            background-color: rgba(186, 188, 186, 0.237);
+            height: 70px;
+            margin: 10px;
+            border-radius: 5px;
+            color: white;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            font-size: 20px;
+            padding: 10px;
+            
+        }
+        
+        button{
+            width: 50px;
+            height: 40px;
+            margin-bottom: 10px;
+            background-color: rgba(72, 72, 72, 0.168);
+            color: white;
+            border: 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover{
+            border: 2px solid white;
+        }
+       
+    </style>
+
+</head>
+<body>
+    <div class="container" style="display: flex; justify-content: center; height: 100vh; align-items: center;">
+        <div class="outerDiv ">
+            <div  class="row1" >
+                <h1 id="displayView"></h1>
+            </div>
+            <div class="claBody " >
+                <div class="row2 " style="display: flex; justify-content: space-around;">
+                    <button onclick="Operator('AC')">AC</button>
+                    <button onclick="Operator('DEL')">DEL</button>
+                    <button onclick="Operator('%')">%</button>
+                    <button onclick="Operator('/')">/</button>
+                </div>
+                <div class="row3" style="display: flex; justify-content: space-around;">
+                    <button onclick="numbers('7')">7</button>
+                    <button onclick="numbers('8')">8</button>
+                    <button onclick="numbers('9')">9</button>
+                    <button onclick="Operator('X')">X</button>
+                </div>
+                <div class="row4" style="display: flex; justify-content: space-around;">
+                    <button onclick="numbers('4')">4</button>
+                    <button onclick="numbers('5')">5</button>
+                    <button onclick="numbers('6')">6</button>
+                    <button onclick="Operator('-')">-</button>
+                </div>
+                <div class="row5" style="display: flex; justify-content: space-around;">
+                    <button onclick="numbers('1')">1</button>
+                    <button onclick="numbers('2')">2</button>
+                    <button onclick="numbers('3')">3</button>
+                    <button onclick="Operator('+')">+</button>
+                </div>
+                <div class="row6" style="display: flex; justify-content: space-around;">
+                    <button onclick="numbers('0')">0</button>
+                    <button onclick="numbers('00')">00</button>
+                    <button onclick="numbers('.')">.</button>
+                    <button onclick="Operator('=')">=</button>
+                </div>
+            </div>   
+        </div>
+    </div>
+
+    <script>
+        var displayView=document.getElementById('displayView');
+        var firstNumber=0;
+        var selectOperator ;
+        var secondNumber;
+
+        function numbers(param){
+            displayView.innerText += param
+        }
+        function Operator(param){
+            if (param === "AC"){
+               displayView.innerText='';
+            }else if(param === "+"){
+                firstNumber = displayView.innerText;
+                selectOperator="+";
+                displayView.innerText ='';
+            }else if (param === "-"){
+                firstNumber = displayView.innerText;
+                selectOperator="-";
+                displayView.innerText ='';
+            }else if (param === "X"){
+                firstNumber = displayView.innerText;
+                selectOperator="X";
+                displayView.innerText ='';
+            }else if (param === "/"){
+                firstNumber = displayView.innerText;
+                selectOperator="/";
+                displayView.innerText ='';
+            }else if (param === "%"){
+                firstNumber = displayView.innerText;
+                selectOperator="%";
+                displayView.innerText ='';
+            }else if (param === "DEL"){
+                let displayView = document.getElementById('displayView');
+                displayView.innerText = displayView.innerText.slice(0, -1);
+            }else if (param === "=" && firstNumber !== ''){
+                secondNumber = displayView.innerHTML;
+                if(selectOperator=== '+'){
+                    var result =parseFloat(firstNumber)+parseFloat(secondNumber);
+                }else if(selectOperator === "-"){
+                    var result =parseFloat(firstNumber)-parseFloat(secondNumber);
+                }else if(selectOperator === "X"){
+                    var result =parseFloat(firstNumber)*parseFloat(secondNumber);
+                }else if(selectOperator === "/"){
+                    if(parseFloat(secondNumber) === 0 ){
+                        displayView.innerHTML='Zero Division'
+                    }else{
+                        var result =parseFloat(firstNumber)/parseFloat(secondNumber);
+                        displayView.innerHTML=result; 
+                    }    
+                }else if(selectOperator === "%"){
+                    var result =parseFloat(firstNumber)%parseFloat(secondNumber);
+                    displayView.innerHTML=result; 
+                }else if(selectOperator === "DEL"){
+                    let result = firstNumber.slice(0,-1); 
+                }
+                displayView.innerHTML=result;
+                firstNumber=0;
+                result=0;
+            }
+            }
+        
+       
+    </script>
+
+</body>
+</html>
+</body>
+</html>
